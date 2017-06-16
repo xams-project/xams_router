@@ -1,8 +1,8 @@
-defmodule AcomXpRouter.Mixfile do
+defmodule XAMS.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :acom_xp_router,
+    [app: :xams,
      version: "0.1.0",
      elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
@@ -16,7 +16,7 @@ defmodule AcomXpRouter.Mixfile do
   def application do
     # Specify extra applications you'll use from Erlang/Elixir
     [extra_applications: [:logger],
-     mod: {AcomXpRouter.Application, []}]
+     mod: {XAMS.Supervisors.Supervisor, []}]
   end
 
   # Dependencies can be Hex packages:
@@ -29,9 +29,10 @@ defmodule AcomXpRouter.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [{:romeo, "~> 0.7"},
-     {:mqtt, github: "kopera/erlang-mqtt"},
-     {:exirc, github: "bitwalker/exirc"},
-     {:poison, "~> 3.0"}]
+    [{:romeo, "~> 0.7"}, # For XMPP connector 
+     {:exmqttc, "~> 0.1.0"}, # For connecting to MQTT broker.
+     {:emqttc, github: "emqtt/emqttc"}, # For connecting to MQTT broker.
+     {:exirc, github: "bitwalker/exirc"}, # For the IRC connector
+     {:poison, "~> 3.0"}] # For encoding/decoding JSON.
   end
 end

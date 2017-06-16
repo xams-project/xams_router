@@ -1,6 +1,6 @@
-defmodule AcomXpRouterTest do
+defmodule XAMSRouterTest do
   use ExUnit.Case
-  doctest AcomXpRouter
+  doctest XAMSRouterTest
 
   test "the truth" do
     assert 1 + 1 == 2

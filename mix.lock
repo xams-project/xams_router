@@ -1,8 +1,14 @@
 %{"connection": {:hex, :connection, "1.0.4", "a1cae72211f0eef17705aaededacac3eb30e6625b04a6117c1b2db6ace7d5976", [:mix], [], "hexpm"},
+  "emqttc": {:git, "https://github.com/emqtt/emqttc.git", "d43c110f7f39a8faa3d38f781638639f01fc6cb0", []},
   "exirc": {:git, "https://github.com/bitwalker/exirc.git", "9dd7e89f5f9447d1ccca15b78b19d9fd52f1c6fa", []},
+  "exmqttc": {:hex, :exmqttc, "0.1.1", "0e90a6f7b706393a2a64970e6793ac820bbe4dd7b4432ff70eba3cc43906051b", [:mix], [{:uuid, "~> 1.1", [hex: :uuid, repo: "hexpm", optional: false]}], "hexpm"},
   "fast_xml": {:hex, :fast_xml, "1.1.22", "7eb81a738218541208fa3a126ee36197fb0346852d8c12ad678039e539e019df", [:rebar3], [{:p1_utils, "1.0.7", [hex: :p1_utils, repo: "hexpm", optional: false]}], "hexpm"},
+  "gen_logger": {:git, "https://github.com/emqtt/gen_logger.git", "f6e9f2f373d99f41ffe0579ab5a5f3b19472c9c5", [branch: "master"]},
+  "goldrush": {:git, "https://github.com/basho/goldrush.git", "8f1b715d36b650ec1e1f5612c00e28af6ab0de82", [tag: "0.1.9"]},
   "hulaaki": {:hex, :hulaaki, "0.0.4", "be9b579573ef33138433fc4052ef9b4c04799f5a7f067b551c64ee813da01d3e", [:mix], [], "hexpm"},
+  "lager": {:git, "https://github.com/basho/lager.git", "81eaef0ce98fdbf64ab95665e3bc2ec4b24c7dac", [branch: "master"]},
   "mqtt": {:git, "https://github.com/kopera/erlang-mqtt.git", "9ee0e03d0ff9d026e01b4101f0ed0fe3c2bac8b2", []},
   "p1_utils": {:hex, :p1_utils, "1.0.7", "030adbce8935f1b87aaedfdb037d3127cc671ee3e1904b394e6dde9e449d6979", [:rebar3], [], "hexpm"},
   "poison": {:hex, :poison, "3.1.0", "d9eb636610e096f86f25d9a46f35a9facac35609a7591b3be3326e99a0484665", [:mix], [], "hexpm"},
-  "romeo": {:hex, :romeo, "0.7.0", "17e46830e49eff4d70e59147e808cd3f5f79912bb90a006afe5a8bb4355c29b3", [:mix], [{:connection, "~> 1.0", [hex: :connection, repo: "hexpm", optional: false]}, {:fast_xml, "~> 1.1", [hex: :fast_xml, repo: "hexpm", optional: false]}], "hexpm"}}
+  "romeo": {:hex, :romeo, "0.7.0", "17e46830e49eff4d70e59147e808cd3f5f79912bb90a006afe5a8bb4355c29b3", [:mix], [{:connection, "~> 1.0", [hex: :connection, repo: "hexpm", optional: false]}, {:fast_xml, "~> 1.1", [hex: :fast_xml, repo: "hexpm", optional: false]}], "hexpm"},
+  "uuid": {:hex, :uuid, "1.1.7", "007afd58273bc0bc7f849c3bdc763e2f8124e83b957e515368c498b641f7ab69", [:mix], [], "hexpm"}}

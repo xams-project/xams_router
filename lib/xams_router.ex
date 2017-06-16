@@ -1,6 +1,6 @@
-defmodule AcomXpRouter do
+defmodule XAMS do
   @moduledoc """
-  Documentation for AcomXpRouter.
+  Documentation for XAMSRouter.
   """
 
   @doc """
@@ -8,7 +8,7 @@ defmodule AcomXpRouter do
 
   ## Examples
 
-      iex> AcomXpRouter.hello
+      iex> XAMSRouter.hello
       :world
 
   """

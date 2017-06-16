@@ -10,11 +10,11 @@ use Mix.Config
 
 # You can configure for your application as:
 #
-#     config :acom_xp_router, key: :value
+#     config :xams_router, key: :value
 #
 # And access this configuration in your application as:
 #
-#     Application.get_env(:acom_xp_router, :key)
+#     Application.get_env(:xams_router, :key)
 #
 # Or configure a 3rd-party app:
 #
