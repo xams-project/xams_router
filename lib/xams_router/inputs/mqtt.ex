@@ -23,8 +23,11 @@ defmodule XAMS.Inputs.MQTT do
     Logger.debug("Received message on Topic: #{topic}")
     Logger.debug("Message: #{msg}")
     msg = Poison.decode!(msg)
-    version = Map.get(msg, "Nina") |> Map.get("client") |> Map.get("version")
-    Logger.error("Version: #{version}")
+    cver = msg |> get_in(["xams",
+                          "client",
+                          "version"]) # Client version.
+
+    Logger.error("Client version: #{cver}")
     {:noreply, state}
   end
   def handle_info(:disconnected, state) do
