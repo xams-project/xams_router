@@ -26,7 +26,11 @@ defmodule XAMS.Inputs.MQTT do
     c_ver = msg |> get_in(["xams",
                            "client",
                            "version"]) # XAMS client version.
+    c_uuid = msg |> get_in(["xams",
+                            "client",
+                            "uuid"]) # XAMS client UUID.
 
+    Logger.debug("Client (UUID: #{c_uuid}) interacted with us...")
     Logger.debug("Client version: #{c_ver}")
     {:noreply, state}
   end
