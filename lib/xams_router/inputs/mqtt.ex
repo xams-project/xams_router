@@ -23,16 +23,15 @@ defmodule XAMS.Inputs.MQTT do
     Logger.debug("Received message on Topic: #{topic}")
     Logger.debug("Message: #{msg}")
     msg = Poison.decode!(msg)
-    cver = msg |> get_in(["xams",
-                          "client",
-                          "version"]) # Client version.
+    c_ver = msg |> get_in(["xams",
+                           "client",
+                           "version"]) # XAMS client version.
 
-    Logger.error("Client version: #{cver}")
+    Logger.debug("Client version: #{c_ver}")
     {:noreply, state}
   end
   def handle_info(:disconnected, state) do
     Logger.error("Disconnected from MQTT broker.")
     {:noreply, state}
   end
-  
 end
