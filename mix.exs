@@ -17,7 +17,9 @@ defmodule XAMS.Mixfile do
     # Specify extra applications you'll use from Erlang/Elixir
     [extra_applications: [:logger,
                           :romeo,
-                          :exirc],
+                          :exirc,
+                          :lager,
+                          :p1_utils],
      mod: {XAMS.Supervisors.Supervisor, []}]
   end
 
@@ -34,6 +36,7 @@ defmodule XAMS.Mixfile do
     [{:romeo, "~> 0.7"}, # For XMPP connector 
      {:emqttc, github: "emqtt/emqttc"}, # For connecting to MQTT broker.
      {:exirc, github: "bitwalker/exirc"}, # For the IRC connector
-     {:poison, "~> 3.0"}] # For encoding/decoding JSON.
+     {:poison, "~> 3.0"}, # For encoding/decoding JSON.
+     {:distillery, "~> 1.4", runtime: false}]
   end
 end

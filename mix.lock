@@ -1,4 +1,5 @@
 %{"connection": {:hex, :connection, "1.0.4", "a1cae72211f0eef17705aaededacac3eb30e6625b04a6117c1b2db6ace7d5976", [:mix], [], "hexpm"},
+  "distillery": {:hex, :distillery, "1.4.1", "546d851bf27ae8fe0727e10e4fc4e146ad836eecee138263a60431e688044ed3", [:mix], [], "hexpm"},
   "emqttc": {:git, "https://github.com/emqtt/emqttc.git", "d43c110f7f39a8faa3d38f781638639f01fc6cb0", []},
   "exirc": {:git, "https://github.com/bitwalker/exirc.git", "9dd7e89f5f9447d1ccca15b78b19d9fd52f1c6fa", []},
   "exmqttc": {:hex, :exmqttc, "0.1.1", "0e90a6f7b706393a2a64970e6793ac820bbe4dd7b4432ff70eba3cc43906051b", [:mix], [{:uuid, "~> 1.1", [hex: :uuid, repo: "hexpm", optional: false]}], "hexpm"},
