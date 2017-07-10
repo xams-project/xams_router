@@ -32,7 +32,6 @@ defmodule XAMS.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [{:romeo, "~> 0.7"}, # For XMPP connector 
-     {:exmqttc, "~> 0.1.0"}, # For connecting to MQTT broker.
      {:emqttc, github: "emqtt/emqttc"}, # For connecting to MQTT broker.
      {:exirc, github: "bitwalker/exirc"}, # For the IRC connector
      {:poison, "~> 3.0"}] # For encoding/decoding JSON.
