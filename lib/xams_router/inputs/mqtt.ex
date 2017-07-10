@@ -14,7 +14,7 @@ defmodule XAMS.Inputs.MQTT do
     
     Logger.info("MQTT client now attempting to connect to broker.")
     {:ok, %{conn: conn,
-           topics: topics}}
+            topics: topics}}
   end
 
   def handle_info({:mqttc, conn, :connected}, %{conn: conn,
