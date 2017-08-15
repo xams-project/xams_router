@@ -29,6 +29,4 @@ use Mix.Config
 #
 #     import_config "#{Mix.env}.exs"
 
-config :xams,
-  topics: ["xams/#"]
-
+import_config "#{Mix.env}.exs"
