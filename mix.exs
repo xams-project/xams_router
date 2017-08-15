@@ -1,4 +1,4 @@
-defmodule XAMS.Mixfile do
+defmodule XAMSRouter.Mixfile do
   use Mix.Project
 
   def project do
@@ -20,7 +20,7 @@ defmodule XAMS.Mixfile do
                           :exirc,
                           :lager,
                           :p1_utils],
-     mod: {XAMS.Supervisors.Supervisor, []}]
+     mod: {XAMSRouter.Supervisor, []}]
   end
 
   # Dependencies can be Hex packages:
@@ -33,10 +33,12 @@ defmodule XAMS.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [{:romeo, "~> 0.7"}, # For XMPP connector 
+    [{:romeo, "~> 0.7"}, # For the XMPP connector.
      {:emqttc, github: "emqtt/emqttc"}, # For connecting to MQTT broker.
-     {:exirc, github: "bitwalker/exirc"}, # For the IRC connector
+     {:exirc, github: "bitwalker/exirc"}, # For the IRC connector.
      {:poison, "~> 3.0"}, # For encoding/decoding JSON.
-     {:distillery, "~> 1.4", runtime: false}]
+     {:msgpax, "~> 2.0"}, # For encoding/decoding MsgPack.
+     {:distillery, "~> 1.4", runtime: false, warn_missing: false}, # For deployment.
+     {:edeliver, "~> 1.4.3"}] # For deployment.
   end
 end
