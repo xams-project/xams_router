@@ -7,12 +7,11 @@ defmodule XAMSRouter.Supervisor do
 
   def start(_type, _args) do
     import Supervisor.Spec, warn: false
-
-    xamsTopics = Application.get_env(:xams,
-     :mqtt)[:topics]
-
+    
     # Define workers and child supervisors to be supervised
-    children = [worker(XAMSRouter.MQTT.MQTT, [xamsTopics])]
+    children = [
+      worker(XAMSRouter.MQTT.Client, [])
+    ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
     # for other strategies and supported options
