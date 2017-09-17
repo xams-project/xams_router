@@ -16,20 +16,19 @@ defmodule XAMSRouter.MQTT.Client do
     password = app_env[:password]
     client_id = app_env[:client_id]
     topics = app_env[:topics]
+
+    clean_sess = app_env[:clean_sess]
+    logger_lvl = app_env[:logger_lvl]
     
     mqtt_opts = [
       host: host,
       port: port,
       client_id: client_id,
-      username: username,
-      clean_sess: false,
-      password: password,
+      logger: logger_lvl,
+      clean_sess: clean_sess,
       keepalive: 60,
-      connack_timeout: 30,
-      reconnect: {3, 120, 10},
-      logger: :error]
-
-    mqtt_opts = [:auto_resub | mqtt_opts]
+      username: username,
+      password: password]
 
     Logger.info("MQTT client now attempting to connect..")
     
