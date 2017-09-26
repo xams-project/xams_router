@@ -29,14 +29,14 @@ defmodule XAMSRouter.MQTT.Client do
       username: username,
       password: password]
 
-    Logger.info("MQTT client now attempting to connect..")
-    
+    Logger.info("MQTT client now connecting to broker.")
+
     {:ok, conn} = if ssl? do
-      Logger.debug("Connecting with SSL...")
       mqtt_opts = [:ssl | mqtt_opts]
+      Logger.debug("Connecting with SSL.", [server: host])
       :emqttc.start_link(mqtt_opts)
     else
-      Logger.debug("Connecting without SSL...")
+      Logger.debug("Connecting without SSL.", [server: host])
       :emqttc.start_link(mqtt_opts)
     end
 
@@ -46,9 +46,9 @@ defmodule XAMSRouter.MQTT.Client do
 
   def handle_info({:mqttc, conn, :connected}, %{conn: conn,
                                                 topics: topics} = state) do
-    Logger.info("Success. MQTT client connected. ")
+    Logger.info("Success. MQTT client connected.")
 
-    Logger.debug("Beginning subscribing phase..")
+    Logger.debug("Begin subscribing phase.")
     # Map over topic list and subscribe.
     # Stock configuration is `["xams/#"], which subscribes to *all*
     # topics nested under that topic
@@ -58,24 +58,24 @@ defmodule XAMSRouter.MQTT.Client do
       Logger.debug("Router now subscribed to topic -> #{t}")
     end)
 
-    Logger.debug("Finished subscribing phase..")
+    Logger.debug("Finished subscribing phase.")
     {:noreply, state}
   end
   def handle_info({:mqttc, conn, :disconnected}, %{conn: conn,
                                                    topics: _topics} = state) do
-    Logger.warn("MQTT client lost connection! Reviving..")
+    Logger.warn("MQTT client lost connection! Reviving client...")
     {:noreply, state}
   end
   def handle_info({:publish, topic, payload}, %{conn: _conn,
                                                 topics: _topics} = state) do
-    Logger.debug("Received a new message from the broker..")
+    Logger.debug("Received a new message from the broker.")
     Logger.debug("Topic -> #{topic}")
     Logger.debug("Payload -> #{payload}")
     {:noreply, state}
   end
 
   def terminate(_reason, pid) do
-    Logger.warn("MQTT client terminating... something went wrong!")
+    Logger.error("MQTT client terminating... something went wrong!")
     :emqttc.disconnect(pid)
   end
 end
