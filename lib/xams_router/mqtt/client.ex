@@ -12,7 +12,7 @@ defmodule XAMSRouter.MQTT.Client do
     port = app_env[:port]
     ssl? = app_env[:ssl?]
 
-    username =app_env[:username]
+    username = app_env[:username]
     password = app_env[:password]
     client_id = app_env[:client_id]
     topics = app_env[:topics]
