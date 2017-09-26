@@ -56,7 +56,7 @@ defmodule XAMSRouter.MQTT.Client do
     # topics nested under that topic
     Enum.map(topics, fn (t) ->
       Logger.debug("Router about to subscribe to topic -> #{t}")
-      :emqttc.subscribe(conn, t, 2)
+      :emqttc.subscribe(conn, t, :qos2)
       Logger.debug("Router now subscribed to topic -> #{t}")
     end)
 
