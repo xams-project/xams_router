@@ -26,7 +26,6 @@ defmodule XAMSRouter.MQTT.Client do
       client_id: client_id,
       logger: logger_lvl,
       clean_sess: clean_sess,
-      keepalive: 60,
       username: username,
       password: password]
 
