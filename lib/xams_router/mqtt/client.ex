@@ -5,7 +5,7 @@ defmodule XAMSRouter.MQTT.Client do
   def start_link() do
     GenServer.start_link(__MODULE__, [])
   end
-  
+
   def init([]) do
     app_env = Application.get_env(:xams, :mqtt)
     host = to_charlist(app_env[:host])
@@ -19,7 +19,7 @@ defmodule XAMSRouter.MQTT.Client do
 
     clean_sess = app_env[:clean_sess]
     logger_lvl = app_env[:logger_lvl]
-    
+
     mqtt_opts = [
       host: host,
       port: port,
@@ -44,7 +44,7 @@ defmodule XAMSRouter.MQTT.Client do
     {:ok, %{conn: conn,
             topics: topics}}
   end
-  
+
   def handle_info({:mqttc, conn, :connected}, %{conn: conn,
                                                 topics: topics} = state) do
     Logger.info("Success. MQTT client connected. ")
