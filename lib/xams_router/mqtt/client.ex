@@ -32,8 +32,10 @@ defmodule XAMSRouter.MQTT.Client do
     Logger.info("MQTT client now connecting to broker.")
 
     {:ok, conn} = if ssl? do
-      mqtt_opts = [:ssl | mqtt_opts]
       Logger.debug("Connecting with SSL.", [server: host])
+      mqtt_opts = [:ssl | mqtt_opts] # If SSL is enabled - add to opts.
+
+      # Start Erlang process of EMQTTC.
       :emqttc.start_link(mqtt_opts)
     else
       Logger.debug("Connecting without SSL.", [server: host])
