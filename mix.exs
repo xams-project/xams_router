@@ -31,12 +31,14 @@ defmodule XAMSRouter.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    [{:romeo, "~> 0.7"}, # For the XMPP connector.
-     {:emqttc, github: "emqtt/emqttc"}, # For connecting to MQTT broker.
-     {:exirc, github: "bitwalker/exirc"}, # For the IRC connector.
-     {:poison, "~> 3.0"}, # For encoding/decoding JSON.
-     {:msgpax, "~> 2.0"}, # For encoding/decoding MsgPack.
-     {:distillery, "~> 1.4", runtime: false, warn_missing: false}, # For deployment.
-     {:edeliver, "~> 1.4.3"}] # For deployment.
+    [
+      {:romeo, "~> 0.7"}, # For the XMPP connector.
+      {:emqttc, github: "emqtt/emqttc"}, # For connecting to MQTT broker.
+      {:exirc, github: "bitwalker/exirc"}, # For the IRC connector.
+      {:riffed, github: "pinterest/riffed"}, # For the payload format, Thrift.
+      {:distillery, "~> 1.4", runtime: false, warn_missing: false}, # For deployment purposes.
+      {:edeliver, "~> 1.4.3"}, # For deployment purposes.
+      {:dialyxir, "~> 0.4", only: [:dev]} # For static analysis purposes.
+    ]
   end
 end
