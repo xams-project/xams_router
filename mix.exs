@@ -15,10 +15,8 @@ defmodule XAMSRouter.Mixfile do
   # Type "mix help compile.app" for more information
   def application do
     # Specify extra applications you'll use from Erlang/Elixir
-    [extra_applications: [:logger,
-                          :romeo,
-                          :exirc,
-                          :lager,
+    [extra_applications: [:lager,
+                          :logger,
                           :p1_utils],
      mod: {XAMSRouter.Supervisor, []}]
   end
