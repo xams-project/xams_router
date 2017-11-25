@@ -1,4 +1,4 @@
-defmodule XAMSRouter.MQTT.Client do
+defmodule XAMSRouter.Workers.MQTT.Client do
   require Logger
   use GenServer
 
@@ -23,24 +23,26 @@ defmodule XAMSRouter.MQTT.Client do
     mqtt_opts = [
       host: host,
       port: port,
+      username: username,
+      password: password,
       client_id: client_id,
       logger: logger_lvl,
-      clean_sess: clean_sess,
-      username: username,
-      password: password]
+      keepalive: 30,
+      clean_sess: clean_sess
+    ]
 
     Logger.info("MQTT client now connecting to broker.")
 
     {:ok, conn} = if ssl? do
       Logger.debug("Connecting with SSL.", [server: host])
-      mqtt_opts = [:ssl | mqtt_opts] # If SSL is enabled - add to opts.
-
-      # Start Erlang process of EMQTTC.
+      mqtt_opts = [:ssl | mqtt_opts]
       :emqttc.start_link(mqtt_opts)
     else
       Logger.debug("Connecting without SSL.", [server: host])
       :emqttc.start_link(mqtt_opts)
     end
+
+    Logger.debug("Connected!")
 
     {:ok, %{conn: conn,
             topics: topics}}
@@ -56,7 +58,9 @@ defmodule XAMSRouter.MQTT.Client do
     # topics nested under that topic
     Enum.map(topics, fn (t) ->
       Logger.debug("Router about to subscribe to topic -> #{t}")
-      :emqttc.subscribe(conn, t, :qos2)
+      :emqttc.subscribe(conn,
+        t,
+        :qos2)
       Logger.debug("Router now subscribed to topic -> #{t}")
     end)
 

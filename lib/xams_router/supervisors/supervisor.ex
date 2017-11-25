@@ -1,4 +1,4 @@
-defmodule XAMSRouter.Supervisor do
+defmodule XAMSRouter.Supervisors.Supervisor do
   # See http://elixir-lang.org/docs/stable/elixir/Application.html
   # for more information on OTP Applications
   @moduledoc false
@@ -10,7 +10,7 @@ defmodule XAMSRouter.Supervisor do
 
     # Define workers and child supervisors to be supervised
     children = [
-      worker(XAMSRouter.MQTT.Client, [])
+      worker(XAMSRouter.Workers.MQTT.Client, [])
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
