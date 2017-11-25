@@ -18,7 +18,7 @@ defmodule XAMSRouter.Mixfile do
     [extra_applications: [:lager,
                           :logger,
                           :p1_utils],
-     mod: {XAMSRouter.Supervisor, []}]
+     mod: {XAMSRouter.Supervisors.Supervisor, []}]
   end
 
   # Dependencies can be Hex packages:
