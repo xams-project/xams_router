@@ -7,7 +7,7 @@ defmodule XAMSRouter.Workers.MQTT.Client do
   end
 
   def init([]) do
-    app_env = Application.get_env(:xams, :mqtt)
+    app_env = Application.get_env(:xams_router, :mqtt)
     host = to_charlist(app_env[:host])
     port = app_env[:port]
     ssl? = app_env[:ssl?]
@@ -53,6 +53,7 @@ defmodule XAMSRouter.Workers.MQTT.Client do
     Logger.info("Success. MQTT client connected.")
 
     Logger.debug("Begin subscribing phase.")
+
     # Map over topic list and subscribe.
     # Stock configuration is `["xams/#"], which subscribes to *all*
     # topics nested under that topic
