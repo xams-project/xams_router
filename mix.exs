@@ -37,8 +37,8 @@ defmodule XAMSRouter.Mixfile do
       {:exirc, github: "bitwalker/exirc"}, # For the IRC connector.
       {:riffed, github: "pinterest/riffed"}, # For the payload format, Thrift.
       {:distillery, "~> 1.4", runtime: false, warn_missing: false}, # For deployment purposes.
-      {:edeliver, "~> 1.4.3"}, # For deployment purposes.
-      {:dialyxir, "~> 0.4", only: [:dev]} # For static analysis purposes.
+      {:edeliver, "~> 1.4"}, # For deployment purposes.
+      {:dialyxir, "~> 0.5", only: [:dev]} # For static analysis purposes.
     ]
   end
 end
