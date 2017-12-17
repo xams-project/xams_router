@@ -1,6 +1,6 @@
 use Mix.Config
 
-config :xams, :mqtt,
+config :xams_router, :mqtt,
   topics: ["xams/#"],
   host: "localhost",
   port: 1883,
